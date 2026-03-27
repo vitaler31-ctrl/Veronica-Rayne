@@ -1,0 +1,340 @@
+/* --- Core Variables & Reset --- */
+:root {
+    --primary: #0a0a0a;   /* Rich Black */
+    --secondary: #1a1a1a; /* Soft Black */
+    --accent: #b59410;    /* Muted Luxury Gold */
+    --accent-hover: #d4af37; /* Brighter Gold */
+    --text-main: #ffffff;
+    --text-body: #b3b3b3;
+    --font-header: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --transition: all 0.4s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--primary);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-weight: 300;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* --- LOGO STYLING START --- */
+.logo {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 10px;
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    color: var(--text-main);
+    letter-spacing: 2px;
+}
+
+.logo-v, .logo-r {
+    grid-row: 1 / 3;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--accent);
+}
+
+.logo-v { margin-right: -15px; } /* Interlocking effect */
+
+.logo-name {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 1.2rem;
+    font-weight: 700;
+    align-self: end;
+}
+
+.logo-tagline {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 0.6rem;
+    color: var(--text-body);
+    letter-spacing: 4px;
+    align-self: start;
+}
+/* --- LOGO STYLING END --- */
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #222;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 35px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.cart-icon {
+    color: var(--accent);
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), 
+                url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: var(--font-header);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-body);
+    margin-bottom: 40px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 18px 45px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border-radius: 2px;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-secondary {
+    border: 1px solid var(--text-main);
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-main);
+    color: var(--primary);
+}
+
+/* --- Products Section --- */
+section {
+    padding: 120px 0;
+}
+
+.section-title {
+    font-family: var(--font-header);
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: var(--secondary);
+    border: 1px solid #222;
+    padding: 20px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.product-image {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.product-card .price {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+/* --- TRENDY DESIGNER BACKGROUND --- 
+   A subtle, Neo-Deco geometric pattern using gradients */
+.designer-bg {
+    background-color: #0d0d0d;
+    background-image: linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+    linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+    linear-gradient(30deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+    linear-gradient(150deg, #151515 12%, transparent 12.5%, transparent 87%, #151515 87.5%, #151515),
+    linear-gradient(60deg, #1a1a1a 25%, transparent 25.5%, transparent 75%, #1a1a1a 75%, #1a1a1a),
+    linear-gradient(60deg, #1a1a1a 25%, transparent 25.5%, transparent 75%, #1a1a1a 75%, #1a1a1a);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+/* --- Curation Section --- */
+.curation-section {
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+}
+
+.curation-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.curation-text h2 {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.curation-text h3 {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+}
+
+.curation-text p {
+    color: var(--text-body);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.curation-visual img {
+    width: 100%;
+    border: 10px solid var(--secondary);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* --- Connect Section --- */
+.connect-section {
+    text-align: center;
+    background-color: var(--secondary);
+}
+
+.connect-section h2 {
+    font-family: var(--font-header);
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.connect-section p {
+    color: var(--text-body);
+    margin: 10px 0 40px 0;
+}
+
+.social-links a {
+    color: var(--text-main);
+    font-size: 2.5rem;
+    margin: 0 20px;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+/* --- Footer --- */
+footer {
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid #222;
+    font-size: 0.8rem;
+    color: var(--text-body);
+}
+
+/* --- Responsive Media Queries --- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 3.5rem; }
+    .curation-container { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; } /* Trendy approach uses hamburger menus on mobile */
+    .hero h1 { font-size: 2.8rem; }
+    .btn { padding: 15px 30px; width: 100%; }
+    .hero-btns { flex-direction: column; gap: 10px; }
+}
